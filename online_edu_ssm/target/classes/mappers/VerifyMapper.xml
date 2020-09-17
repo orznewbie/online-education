@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.orznewbie.dao.VerifyMapper">
+    <select id="query" resultType="verify">
+        SELECT * FROM verify WHERE id LIKE #{id}
+    </select>
+
+    <delete id="delete">
+        DELETE FROM verify WHERE id LIKE #{id}
+    </delete>
+
+    <insert id="insert">
+        INSERT INTO verify VALUES(#{id}, #{pwd}, #{role})
+    </insert>
+
+    <update id="update">
+        UPDATE verify SET id = #{id}, pwd = #{pwd}, role = #{role}
+    </update>
+</mapper>
