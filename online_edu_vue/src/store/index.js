@@ -6,31 +6,39 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state:{
     userInfo:{},
-    isRemember:false // 是否记住密码标志位
+    isLogin:false,
+    rememberMe:false
   },
   mutations:{
-    getUserInfo(state,user){
+    setUserInfo(state,user){
       state.userInfo = user
     },
 
-    // 删除用户信息
     deleteUserInfo(state){
       state.userInfo = {}
+      state.isLogin = false
     },
-    // 记住用户密码
-    rememberUserInfo(state){
-      state.isRemember = true
+
+    setRememberMe(state){
+      state.rememberMe = true
+    },
+
+    setLogin(state){
+      state.isLogin = true
     }
   },
   actions:{
-    getUserInfo({commit},user){
-      commit('getUserInfo',user)
+    setUserInfo({commit},user){
+      commit('setUserInfo',user)
     },
     deleteUserInfo({commit}){
       commit('deleteUserInfo')
     },
-    rememberUserInfo({commit}){
-      commit('rememberUserInfo')
+    setRememberMe({commit}){
+      commit('setRememberMe')
+    },
+    setLogin({commit}){
+      commit('setLogin')
     }
   }
 })

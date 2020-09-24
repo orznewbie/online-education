@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class Banner {
     private Integer id;
     private String url;
-    private String link;
+    private Integer cid;
 }

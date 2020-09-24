@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.orznewbie.dao.PptMapper">
+    <insert id="insert">
+        INSERT INTO ppt(title, url, cid) VALUES(#{title}, #{url}, #{cid})
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM ppt WHERE id = #{id}
+    </delete>
+
+    <update id="update">
+        UPDATE ppt SET title = #{title}, url = #{url}, chid = #{chid}
+    </update>
+
+    <select id="queryAll" resultType="ppt">
+        SELECT * FROM ppt
+    </select>
+</mapper>

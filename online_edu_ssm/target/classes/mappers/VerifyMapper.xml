@@ -10,10 +10,10 @@
     </delete>
 
     <insert id="insert">
-        INSERT INTO verify VALUES(#{id}, #{pwd}, #{role})
+        INSERT INTO verify VALUES(#{id}, #{pwd});
     </insert>
 
     <update id="update">
-        UPDATE verify SET id = #{id}, pwd = #{pwd}, role = #{role}
+        UPDATE verify SET pwd = #{pwd} WHERE id LIKE #{id}
     </update>
 </mapper>

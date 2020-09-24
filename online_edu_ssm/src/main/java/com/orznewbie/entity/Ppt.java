@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Ppt {
     private Integer id;
+    private String title;
     private String url;
     private Integer cid;
 }

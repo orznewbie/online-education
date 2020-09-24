@@ -10,5 +10,8 @@
         <module name="online_edu" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="online_edu" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -10,5 +10,4 @@ import lombok.NoArgsConstructor;
 public class Verify {
     private String id;
     private String pwd;
-    private Integer role;
 }

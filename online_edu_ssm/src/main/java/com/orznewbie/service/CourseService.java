@@ -3,9 +3,10 @@ package com.orznewbie.service;
 import com.orznewbie.entity.Course;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CourseService {
-    Course query(Integer id);
+    List<Course> query(Map<String, Object> map);
 
     int delete(Integer id);
 
@@ -13,5 +14,5 @@ public interface CourseService {
 
     int update(Course course);
 
-    List<Course> getAll();
+    List<Course> queryAll();
 }

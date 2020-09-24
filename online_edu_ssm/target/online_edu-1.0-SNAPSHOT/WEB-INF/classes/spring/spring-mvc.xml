@@ -9,7 +9,7 @@
                            https://www.springframework.org/schema/context/spring-context.xsd
                            http://www.springframework.org/schema/mvc
                            https://www.springframework.org/schema/mvc/spring-mvc.xsd">
-    <!--1、注入controller包下所有bean-->
+    <!--1、扫描controller包下所有bean-->
     <context:component-scan base-package="com.orznewbie.controller"/>
     <!--2、相当于配置了url-mapping映射器和bean-apdater适配器-->
     <mvc:annotation-driven/>
@@ -19,5 +19,19 @@
     <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
+    </bean>
+    <!--5、拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/common/**"/>
+            <bean class="com.orznewbie.interceptor.TokenHandler"/>
+        </mvc:interceptor>
+     </mvc:interceptors>
+    <!--6、文件上传-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="maxInMemorySize" value="10240"/>
+        <property name="maxUploadSize" value="-1"/>
     </bean>
 </beans>

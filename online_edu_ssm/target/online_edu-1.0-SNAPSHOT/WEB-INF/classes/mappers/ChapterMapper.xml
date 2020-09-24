@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.orznewbie.dao.ChapterMapper">
+    <resultMap id="map" type="chapter">
+        <result column="inde" property="index"/>
+    </resultMap>
+    <insert id="insert">
+        INSERT INTO chapter(inde, title, cid) VALUES(#{index}, #{title}, #{cid})
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM chapter WHERE id = #{id}
+    </delete>
+
+    <update id="update">
+        UPDATE chapter SET inde = #{index}, title = #{title}, cid = #{cid}
+    </update>
+
+    <select id="queryAll" resultMap="map">
+        SELECT * FROM chapter WHERE cid = #{cid} ORDER BY inde ASC
+    </select>
+</mapper>

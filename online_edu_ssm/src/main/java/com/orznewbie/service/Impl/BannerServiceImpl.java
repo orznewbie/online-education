@@ -29,7 +29,7 @@ public class BannerServiceImpl implements BannerService {
         return bannerMapper.update(banner);
     }
 
-    public List<Banner> getAll() {
-        return bannerMapper.getAll();
+    public List<Banner> queryAll() {
+        return bannerMapper.queryAll();
     }
 }

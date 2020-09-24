@@ -6,10 +6,9 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
     // Path
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/online_edu/',
+    assetsPublicPath: '/',
     proxyTable: {
       '/api': {
         target: 'http://localhost:8080',

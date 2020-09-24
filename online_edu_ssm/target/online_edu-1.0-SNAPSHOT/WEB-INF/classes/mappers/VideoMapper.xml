@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.orznewbie.dao.VideoMapper">
+    <insert id="insert">
+        INSERT INTO video(title, url, chid) VALUES(#{title}, #{url}, #{chid})
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM video WHERE id = #{id}
+    </delete>
+
+    <update id="update">
+        UPDATE video SET title = #{title}, url = #{url}, chid = #{chid}
+    </update>
+
+    <select id="queryAll" resultType="video">
+        SELECT * FROM video
+    </select>
+
+    <select id="query" resultType="video">
+        SELECT * FROM video WHERE chid = #{chid}
+    </select>
+</mapper>

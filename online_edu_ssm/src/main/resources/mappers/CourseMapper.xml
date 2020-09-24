@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.orznewbie.dao.CourseMapper">
+    <delete id="delete">
+        DELETE FROM course WHERE id = #{id}
+    </delete>
+    <select id="queryAll" resultType="course">
+        SELECT * FROM course
+    </select>
+    <insert id="insert">
+        INSERT INTO course(title, cover, category, intro, price, tid)
+        VALUES(#{title}, #{cover}, #{category}, #{intro}, #{price}, #{tid})
+    </insert>
+    <update id="update">
+        UPDATE course SET title=#{title}, cover=#{cover}, intro=#{intro}, price=#{price}, salecnt=#{salecnt},
+        status=#{status}
+    </update>
 
+    <select id="query" resultType="course">
+        SELECT * FROM course
+        <where>
+            <if test="id != null">
+                AND id = #{id}
+            </if>
+            <if test="tname != null">
+
+            </if>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+            <if test="title != null and ordered !=''">
+                AND title like concat('%',#{title},'%')
+            </if>
+            <if test="category != null and category != 0">
+                AND category = #{category}
+            </if>
+        </where>
+        <choose>
+            <when test="ordered != null and ordered !=''">
+                ORDER BY
+                <if test='ordered == "priceAsc"'>
+                    price ASC
+                </if>
+                <if test='ordered == "priceDesc"'>
+                    price DESC
+                </if>
+                <if test='ordered == "salecntAsc"'>
+                    salecnt ASC
+                </if>
+                <if test='ordered == "salecntDesc"'>
+                    salecnt DESC
+                </if>
+            </when>
+        </choose>
+        <if test="startIndex != null">
+            LIMIT ${startIndex}, ${offset}
+        </if>
+    </select>
 </mapper>

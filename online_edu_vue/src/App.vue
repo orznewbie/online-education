@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import BaseHeader from "@/components/common/BaseHeader";
-import BaseFooter from "@/components/common/BaseFooter";
+import BaseHeader from "@/components/contents/BaseHeader";
+import BaseFooter from "@/components/contents/BaseFooter";
 export default {
   name: "App",
   components: {

@@ -3,15 +3,14 @@ package com.orznewbie.service;
 import com.orznewbie.entity.User;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserService {
-    User query(String id);
+    List<User> query(Map<String, Object> map);
 
     int delete(String id);
 
-    int insert(User user);
-
     int update(User user);
 
-    List<User> getAll();
+    List<User> queryAll();
 }

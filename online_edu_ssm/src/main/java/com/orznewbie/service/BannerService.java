@@ -12,5 +12,5 @@ public interface BannerService {
 
     int update(Banner banner);
 
-    List<Banner> getAll();
+    List<Banner> queryAll();
 }

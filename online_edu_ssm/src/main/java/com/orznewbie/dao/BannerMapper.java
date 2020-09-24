@@ -12,5 +12,5 @@ public interface BannerMapper {
 
     int update(Banner banner);
 
-    List<Banner> getAll();
+    List<Banner> queryAll();
 }

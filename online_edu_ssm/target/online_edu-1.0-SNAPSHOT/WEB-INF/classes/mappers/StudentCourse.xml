@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.orznewbie.dao.StudentCourseMapper">
+    <select id="queryAll" resultType="studentCourse">
+        SELECT * FROM sbuyc WHERE sid like #{sid}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO sbuyc(sid, cid, cost) VALUES(#{sid}, #{cid}, #{cost})
+    </insert>
+</mapper>
